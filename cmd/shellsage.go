@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra" // Import Cobra library
+	"github.com/whatDeepak/ShellSage/helper/ai"
 	"github.com/whatDeepak/ShellSage/utils"
 )
 
