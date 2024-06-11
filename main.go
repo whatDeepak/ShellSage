@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/joho/godotenv"
-	"github.com/whatDeepak/ShellSage/cmd"
+	"github.com/whatDeepak/shellsage/cmd"
 )
 
 func main() {

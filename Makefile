@@ -1,5 +1,5 @@
 # Define variables
-GOBIN := ./bin/ShellSage
+GOBIN := ./bin/shellsage
 GOPACKAGES := $(shell go list ./... | grep -v /vendor)
 
 # Build command

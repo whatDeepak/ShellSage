@@ -1,4 +1,4 @@
-module github.com/whatDeepak/ShellSage
+module github.com/whatDeepak/shellsage
 
 go 1.22.1
 
