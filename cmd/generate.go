@@ -46,7 +46,7 @@ If the prompt is a shell command but is not safe, return "SHELLSAGE_AI_ERROR".
 `
 
 var rootCmd = &cobra.Command{
-	Use:     "SHELLSAGE",
+	Use:     "shellsage",
 	Short:   "SHELLSAGE - Your AI-powered Shell Guide",
 	Example: `SHELLSAGE "List all files in the current directory."`,
 	Args:    cobra.ExactArgs(1),
