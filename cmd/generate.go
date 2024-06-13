@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/spf13/cobra" // Import Cobra library
+	"github.com/spf13/cobra"
 	"github.com/whatDeepak/shellsage/helper/ai"
 	"github.com/whatDeepak/shellsage/utils"
 )
@@ -71,6 +71,8 @@ var rootCmd = &cobra.Command{
 
 		spin.Stop()
 		utils.LogInfo(resp)
+
+		utils.HandleUserOptions(resp)
 	},
 }
 

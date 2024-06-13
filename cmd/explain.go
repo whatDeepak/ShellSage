@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra" // Import Cobra library
+	"github.com/spf13/cobra"
 	"github.com/whatDeepak/shellsage/helper/ai"
 	"github.com/whatDeepak/shellsage/utils"
 )
@@ -62,6 +62,8 @@ var explainCmd = &cobra.Command{
 
 		spin.Stop()
 		utils.LogExplanation(resp)
+
+		utils.HandleUserOptions(resp)
 	},
 }
 

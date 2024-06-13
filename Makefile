@@ -17,7 +17,7 @@ test:
 
 # Clean command
 clean:
-	rm $(GOBIN) # This was too dengerous when $(GOBIN) was only './bin'!
+	rm -f $(GOBIN)
 
 # Live reload command (optional)
 livereload:
