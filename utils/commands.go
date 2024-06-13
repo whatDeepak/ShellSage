@@ -45,7 +45,8 @@ func HandleUserOptions(command string) {
 		case "1":
 			ExecuteCommand(command)
 		case "2":
-			fmt.Printf("Enter the revised command [%s]: ", command)
+			fmt.Printf("Current command: %s\n", command)
+			fmt.Print("Enter the revised command: ")
 			revisedCommand, _ := reader.ReadString('\n')
 			revisedCommand = strings.TrimSpace(revisedCommand)
 			if revisedCommand == "" {
