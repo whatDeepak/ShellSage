@@ -9,14 +9,32 @@ import (
 	"strings"
 )
 
+// commandMapping maps Unix commands to Windows equivalents
+var commandMapping = map[string]string{
+	"ls": "dir",
+}
+
+// mapCommand maps Unix commands to their Windows equivalents if needed
+func mapCommand(command string) string {
+	if runtime.GOOS == "windows" {
+		for unixCmd, winCmd := range commandMapping {
+			if strings.HasPrefix(command, unixCmd) {
+				return strings.Replace(command, unixCmd, winCmd, 1)
+			}
+		}
+	}
+	return command
+}
+
 // ExecuteCommand runs the provided shell command.
 func ExecuteCommand(command string) {
-	var cmd *exec.Cmd
+	command = mapCommand(command) // Map the command if needed
 
+	var cmd *exec.Cmd
 	if runtime.GOOS == "windows" {
 		cmd = exec.Command("cmd.exe", "/C", command)
 	} else {
-		cmd = exec.Command("bash", "-c", command) // Use "bash" for Unix-like systems
+		cmd = exec.Command("sh", "-c", command)
 	}
 
 	cmd.Stdout = os.Stdout
