@@ -5,16 +5,24 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"runtime"
 	"strings"
 )
 
 // ExecuteCommand runs the provided shell command.
 func ExecuteCommand(command string) {
-	cmd := exec.Command("sh", "-c", command)
+	var cmd *exec.Cmd
+
+	if runtime.GOOS == "windows" {
+		cmd = exec.Command("cmd.exe", "/C", command)
+	} else {
+		cmd = exec.Command("sh", "-c", command)
+	}
+
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	err := cmd.Run()
-	if err != nil {
+
+	if err := cmd.Run(); err != nil {
 		fmt.Println("Error executing command:", err)
 	}
 }
