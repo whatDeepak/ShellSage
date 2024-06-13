@@ -16,7 +16,7 @@ func ExecuteCommand(command string) {
 	if runtime.GOOS == "windows" {
 		cmd = exec.Command("cmd.exe", "/C", command)
 	} else {
-		cmd = exec.Command("sh", "-c", command)
+		cmd = exec.Command("bash", "-c", command) // Use "bash" for Unix-like systems
 	}
 
 	cmd.Stdout = os.Stdout
